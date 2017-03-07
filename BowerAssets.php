@@ -12,10 +12,13 @@ class BowerAssets extends AssetBundle
 	public $sourcePath = '@bower/sceditor';
 
 	public $css = [
-		'minified/jquery.sceditor.min.css'
+		'minified/jquery.sceditor.default.min.css',
+		'minified/themes/monocons.min.css',
 	];
 
 	public $js = [
-		'minified/jquery.sceditor.bbcode.min.js'
+		'minified/jquery.sceditor.bbcode.min.js',
+		'minified/jquery.sceditor.xhtml.min.js',
+		'minified/jquery.sceditor.min.js',
 	];
 }

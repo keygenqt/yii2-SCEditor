@@ -1,0 +1,31 @@
+.form-group .sceditor-container {
+    width: 100% !important;
+}
+.form-group .sceditor-container iframe {
+    width: 100% !important;
+}
+.form-group .sceditor-container textarea {
+    width: 100% !important;
+}
+.form-group .sceditor-container iframe, .sceditor-container textarea {
+    box-sizing: border-box;
+    margin: 5px 0;
+    padding: 0 5px;
+}
+.form-group .sceditor-toolbar .sceditor-group:nth-child(5) a:nth-child(3) {
+    display: none;
+}
+.form-group .sceditor-toolbar .sceditor-group:nth-child(5) a:nth-child(4) {
+    display: none;
+}
+.form-group .sceditor-toolbar .sceditor-group:nth-child(10) {
+    display: none;
+}
+.form-group .sceditor-toolbar .sceditor-group:last-child {
+    margin-right: 0;
+}
+.form-group .sceditor-button {
+    width: 15px;
+    height: 20px;
+    width: 16.67px;
+}
