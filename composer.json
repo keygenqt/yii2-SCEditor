@@ -1,8 +1,8 @@
 {
-	"name": "keygenqt/yii2-highcharts",
+	"name": "keygenqt/yii2-SCEditor",
 	"description": "Widget from form image ajax load.",
 	"keywords": ["yii2", "extension", "widget", "jquery"],
-	"homepage": "https://github.com/keygenqt/yii2-highcharts",
+	"homepage": "https://github.com/keygenqt/yii2-SCEditor",
 	"type": "yii2-extension",
 	"license": "BSD-3-Clause",
 	"version":"0.5.0",
@@ -15,13 +15,13 @@
 		}
 	],
 	"require": {
-		"bower-asset/highcharts": "*",
+		"bower-asset/sceditor": "~1.5",
 		"yiisoft/yii2": "*",
 		"php": ">=5.4.0"
 	},
 	"autoload": {
 		"psr-4": {
-			"keygenqt\\highcharts\\": ""
+			"keygenqt\\SCEditor\\": ""
 		}
 	}
 }
