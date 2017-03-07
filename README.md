@@ -11,7 +11,7 @@ Either add
 
 ```
 "require": {
-    "keygenqt/yii2-highcharts": "*"
+    "keygenqt/yii2-SCEditor": "*"
 }
 ```
 
