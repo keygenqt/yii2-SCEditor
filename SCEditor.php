@@ -1,6 +1,6 @@
 <?php
 
-namespace keygenqt\highcharts;
+namespace keygenqt\sceditor;
 
 class SCEditor extends \yii\base\Widget
 {

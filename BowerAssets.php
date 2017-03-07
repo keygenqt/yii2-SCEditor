@@ -1,6 +1,6 @@
 <?php
 
-namespace keygenqt\highcharts;
+namespace keygenqt\sceditor;
 
 use \yii\web\AssetBundle;
 
@@ -9,9 +9,13 @@ use \yii\web\AssetBundle;
  */
 class BowerAssets extends AssetBundle
 {
-	public $sourcePath = '@bower/highcharts';
+	public $sourcePath = '@bower/sceditor';
+
+	public $css = [
+		'minified/jquery.sceditor.min.css'
+	];
 
 	public $js = [
-		'highcharts.js'
+		'minified/jquery.sceditor.bbcode.min.js'
 	];
 }
