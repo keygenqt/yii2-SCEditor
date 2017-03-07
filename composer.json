@@ -1,5 +1,5 @@
 {
-	"name": "keygenqt/yii2-SCEditor",
+	"name": "keygenqt/yii2-sceditor",
 	"description": "Widget from form image ajax load.",
 	"keywords": ["yii2", "extension", "widget", "jquery"],
 	"homepage": "https://github.com/keygenqt/yii2-SCEditor",
@@ -21,7 +21,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"keygenqt\\SCEditor\\": ""
+			"keygenqt\\sceditor\\": ""
 		}
 	}
 }

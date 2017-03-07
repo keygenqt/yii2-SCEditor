@@ -1,4 +1,4 @@
-yii2-SCEditor
+yii2-sceditor
 ===================
 
 Wrap on a wonderful library [SCEditor](https://github.com/samclarke/SCEditor).
@@ -11,7 +11,7 @@ Either add
 
 ```
 "require": {
-    "keygenqt/yii2-SCEditor": "*"
+    "keygenqt/yii2-sceditor": "*"
 }
 ```
 
@@ -24,9 +24,9 @@ The latest version of the module is v0.5.0 `BETA`.
 ## Usage
 
 ```php
-use keygenqt\SCEditor\SCEditor;
+use keygenqt\sceditor\SCEditor;
 
-<?= SCEditor::widget([
+<?= sceditor::widget([
 	'jsOption' => [
 
 	]]);
@@ -35,6 +35,6 @@ use keygenqt\SCEditor\SCEditor;
 
 ## License
 
-**yii2-SCEditor** is released under the BSD 3-Clause License. See the bundled `LICENSE.md` for details.
+**yii2-sceditor** is released under the BSD 3-Clause License. See the bundled `LICENSE.md` for details.
 
 
