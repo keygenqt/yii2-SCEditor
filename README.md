@@ -24,13 +24,24 @@ The latest version of the module is v0.5.0 `BETA`.
 ## Usage
 
 ```php
-use keygenqt\sceditor\SCEditor;
+if ($model->load(Yii::$app->request->post())) {
+    $model->text = keygenqt\sceditor\SCEditor::getValue($model->text, [
+        'AutoFormat.RemoveEmpty' => true,
+        'HTML.SafeIframe' => true,
+        'URI.SafeIframeRegexp' => '%^(https?:)?//(www\.youtube(?:-nocookie)?\.com/embed/|player\.vimeo\.com/video/)%',
+    ]);
+...
+```
 
-<?= sceditor::widget([
-	'jsOption' => [
-
-	]]);
-?>
+```php
+<?= $form->field($model, 'text')->widget(\keygenqt\sceditor\SCEditor::className(), [
+    'jsOption' => [
+        'height' => 300,
+        'resizeWidth' => false,
+        'toolbar' => "bold,italic,underline,strike|bulletlist,orderedlist,horizontalrule|link,emoticon,image,youtube|date,time|unlink,removeformat" . (YII_DEBUG ? '|source' : ''),
+        'style' => 'minified/jquery.sceditor.default.min.css',
+    ]
+]) ?>
 ```
 
 ## License

@@ -10,7 +10,6 @@ class SCEditor extends \yii\base\Widget
     public $attribute;
     public $value;
 
-    public $options = [];
     public $jsOption = [];
 
     public function run()
@@ -68,14 +67,14 @@ class SCEditor extends \yii\base\Widget
 
         if ($this->model == null) {
             return '<div class="load-SCEditor"><div><div><img src="' . $active . '/images/loader.gif' . '"/></div></div></div>' .
-                \yii\helpers\Html::textarea($this->attribute, $this->value, \yii\helpers\ArrayHelper::merge($this->options, [
+                \yii\helpers\Html::textarea($this->attribute, $this->value, [
                 'id' => $this->getId(),
-            ]));
+            ]);
         } else {
             return '<div class="load-SCEditor"><div><div><img src="' . $active . '/images/loader.gif' . '"/></div></div></div>' .
-                \yii\helpers\Html::activeTextarea($this->model, $this->attribute, \yii\helpers\ArrayHelper::merge($this->options, [
+                \yii\helpers\Html::activeTextarea($this->model, $this->attribute, [
                 'id' => $this->getId(),
-            ]));
+            ]);
         }
     }
 
