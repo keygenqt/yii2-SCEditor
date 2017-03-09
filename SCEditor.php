@@ -2,7 +2,7 @@
 
 namespace keygenqt\sceditor;
 
-use yii2fullcalendar\CoreAsset;
+use yii\helpers\HtmlPurifier;
 
 class SCEditor extends \yii\base\Widget
 {
@@ -15,7 +15,7 @@ class SCEditor extends \yii\base\Widget
 
     public function run()
     {
-        ActiveAssets::register($this->getView());
+        $active = ActiveAssets::register($this->getView())->baseUrl;
         $assets = BowerAssets::register($this->getView())->baseUrl;
 
         $this->jsOption['style'] = $assets . '/' . $this->jsOption['style'];
@@ -64,14 +64,26 @@ class SCEditor extends \yii\base\Widget
         $this->jsOption = \yii\helpers\Json::encode($this->jsOption);
         $this->getView()->registerJs("$('#{$this->getId()}').sceditor({$this->jsOption});");
 
+        $this->getView()->registerJs("$(function() {setTimeout(function() { $('.load-SCEditor').fadeOut(150) }, 50);})");
+
         if ($this->model == null) {
-            return \yii\helpers\Html::textarea($this->attribute, $this->value, \yii\helpers\ArrayHelper::merge($this->options, [
+            return '<div class="load-SCEditor"><div><div><img src="' . $active . '/images/loader.gif' . '"/></div></div></div>' .
+                \yii\helpers\Html::textarea($this->attribute, $this->value, \yii\helpers\ArrayHelper::merge($this->options, [
                 'id' => $this->getId(),
             ]));
         } else {
-            return \yii\helpers\Html::activeTextarea($this->model, $this->attribute, \yii\helpers\ArrayHelper::merge($this->options, [
+            return '<div class="load-SCEditor"><div><div><img src="' . $active . '/images/loader.gif' . '"/></div></div></div>' .
+                \yii\helpers\Html::activeTextarea($this->model, $this->attribute, \yii\helpers\ArrayHelper::merge($this->options, [
                 'id' => $this->getId(),
             ]));
         }
+    }
+
+    public static function getValue($text, $config)
+    {
+        if ($text == '<p><br></p>') {
+            return '';
+        }
+        return HtmlPurifier::process($text, $config);
     }
 }

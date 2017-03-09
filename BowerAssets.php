@@ -12,7 +12,6 @@ class BowerAssets extends AssetBundle
 	public $sourcePath = '@bower/sceditor';
 
 	public $css = [
-		'minified/jquery.sceditor.default.min.css',
 		'minified/themes/monocons.min.css',
 	];
 

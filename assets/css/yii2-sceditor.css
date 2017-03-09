@@ -1,3 +1,27 @@
+.form-group .sceditor-container iframe, .form-group .sceditor-container textarea {
+    box-sizing: border-box;
+    margin: 5px 0;
+    padding: 0 5px;
+}
+.form-group .sceditor-toolbar .sceditor-group:last-child {
+    margin-right: 0;
+}
+.form-group .sceditor-button {
+    width: 15px;
+    height: 20px;
+    width: 16.67px;
+}
+.form-group .sceditor-container,
+.form-group div.sceditor-toolbar {
+    border-radius: 0;
+}
+.form-group.has-error .sceditor-container {
+    border: 1px solid #FF556A;
+}
+.form-group.has-error div.sceditor-toolbar {
+    border-bottom: 1px solid #FF556A;
+}
+
 .form-group .sceditor-container {
     width: 100% !important;
 }
@@ -7,25 +31,29 @@
 .form-group .sceditor-container textarea {
     width: 100% !important;
 }
-.form-group .sceditor-container iframe, .sceditor-container textarea {
-    box-sizing: border-box;
-    margin: 5px 0;
-    padding: 0 5px;
+
+.form-group {
+    position: relative;
 }
-.form-group .sceditor-toolbar .sceditor-group:nth-child(5) a:nth-child(3) {
-    display: none;
+.load-SCEditor {
+    position: absolute;
+    top: 0;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    background: #F8F8F8;
+    z-index: 9999;
+    text-align: center;
 }
-.form-group .sceditor-toolbar .sceditor-group:nth-child(5) a:nth-child(4) {
-    display: none;
+.load-SCEditor div {
+    display: table;
+    width: 100%;
+    height: 100%;
 }
-.form-group .sceditor-toolbar .sceditor-group:nth-child(10) {
-    display: none;
+.load-SCEditor div div {
+    display: table-cell;
+    vertical-align: middle;
 }
-.form-group .sceditor-toolbar .sceditor-group:last-child {
-    margin-right: 0;
-}
-.form-group .sceditor-button {
-    width: 15px;
-    height: 20px;
-    width: 16.67px;
+.load-SCEditor div img {
+    width: 40px;
 }
