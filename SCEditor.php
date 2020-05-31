@@ -17,8 +17,17 @@
 
 namespace keygenqt\sceditor;
 
+use yii\base\Model;
 use yii\helpers\HtmlPurifier;
 
+/**
+ * @property Model $model
+ * @property string $attribute
+ * @property string $value
+ * @property array $jsOption
+ * @property string $id
+ * @property string $classname
+ */
 class SCEditor extends \yii\base\Widget
 {
     public $model;
@@ -27,15 +36,25 @@ class SCEditor extends \yii\base\Widget
 
     public $jsOption = [];
 
+    public $id;
+    public $classname;
+
     public function run()
     {
+        if ($this->model == null) {
+            $this->id = $this->getId();
+        } else {
+            $this->classname = strtolower((new \ReflectionClass($this->model))->getShortName());
+            $this->id = "{$this->classname}-$this->attribute";
+        }
+
         $active = ActiveAssets::register($this->getView())->baseUrl;
         $assets = BowerAssets::register($this->getView())->baseUrl;
 
         $this->jsOption['style'] = $assets . '/' . $this->jsOption['style'];
         $this->jsOption['emoticons'] = [
             'dropdown' => [
-               ':)' =>  $assets . '/' . 'emoticons/smile.png',
+                ':)' => $assets . '/' . 'emoticons/smile.png',
                 ':angel:' => $assets . '/' . 'emoticons/angel.png',
                 ':angry:' => $assets . '/' . 'emoticons/angry.png',
                 '8-)' => $assets . '/' . 'emoticons/cool.png',
@@ -76,28 +95,23 @@ class SCEditor extends \yii\base\Widget
         ];
 
         $this->jsOption = \yii\helpers\Json::encode($this->jsOption);
-        $this->getView()->registerJs("$('#{$this->getId()}').sceditor({$this->jsOption});");
+        $this->getView()->registerJs("$('#{$this->id}').sceditor({$this->jsOption});");
 
         $this->getView()->registerJs("$(function() {setTimeout(function() { $('.load-SCEditor').fadeOut(150) }, 50);})");
+        $this->getView()->registerJs("
+            $('#{$this->id}').closest('form').submit(function () {
+                if ($('#{$this->id}').val() == '<p><br></p>') {
+                    $('#{$this->id}').val('')
+                }
+            });
+        ");
 
         if ($this->model == null) {
-            return '<div class="load-SCEditor"><div><div><img src="' . $active . '/images/loader.gif' . '"/></div></div></div>' .
-                \yii\helpers\Html::textarea($this->attribute, $this->value, [
-                'id' => $this->getId(),
+            return \yii\helpers\Html::textarea($this->attribute, $this->value, [
+                'id' => $this->id,
             ]);
         } else {
-            return '<div class="load-SCEditor"><div><div><img src="' . $active . '/images/loader.gif' . '"/></div></div></div>' .
-                \yii\helpers\Html::activeTextarea($this->model, $this->attribute, [
-                'id' => $this->getId(),
-            ]);
+            return \yii\helpers\Html::activeTextarea($this->model, $this->attribute);
         }
-    }
-
-    public static function getValue($text, $config)
-    {
-        if ($text == '<p><br></p>') {
-            return '';
-        }
-        return HtmlPurifier::process($text, $config);
     }
 }

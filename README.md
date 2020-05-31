@@ -1,10 +1,10 @@
-SCEditor for Yii2
+[SCEditor](https://keygenqt.com/work/yii2-SCEditor)
 ===================
 
 ![GitHub](https://img.shields.io/github/license/keygenqt/yii2-SCEditor)
 ![Packagist Downloads](https://img.shields.io/packagist/dt/keygenqt/yii2-SCEditor)
 
-Wrap on a wonderful library [SCEditor](https://github.com/samclarke/SCEditor).
+Extension yii for library [SCEditor](https://www.sceditor.com/)
 
 ## Installation
 
