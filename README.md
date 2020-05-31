@@ -23,16 +23,6 @@ of your `composer.json` file.
 ## Usage
 
 ```php
-if ($model->load(Yii::$app->request->post())) {
-    $model->text = keygenqt\sceditor\SCEditor::getValue($model->text, [
-        'AutoFormat.RemoveEmpty' => true,
-        'HTML.SafeIframe' => true,
-        'URI.SafeIframeRegexp' => '%^(https?:)?//(www\.youtube(?:-nocookie)?\.com/embed/|player\.vimeo\.com/video/)%',
-    ]);
-...
-```
-
-```php
 <?= $form->field($model, 'text')->widget(\keygenqt\sceditor\SCEditor::className(), [
     'jsOption' => [
         'height' => 300,
