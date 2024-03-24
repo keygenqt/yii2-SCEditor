@@ -1,4 +1,4 @@
-SCEditor
+Yii2 SCEditor
 ===================
 
 ![Packagist Downloads](https://img.shields.io/packagist/dt/keygenqt/yii2-SCEditor?label=Packagist%20Downloads)
